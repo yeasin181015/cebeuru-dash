@@ -12,7 +12,7 @@ const AppLayout = () => {
         <div className="bg-dark-900 flex-grow min-h-screen">
           <Header />
           <main
-            className="bg-[#F4F7FF] rounded-tl-2xl p-6"
+            className="bg-[#F4F7FF] rounded-tl-2xl p-6 overflow-auto"
             style={{
               height: "calc(100vh - 5rem)",
             }}

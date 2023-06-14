@@ -10,7 +10,7 @@ type Props = {};
 
 const Dashboard = ({}: Props) => {
   return (
-    <div>
+    <div className="">
       <div className="grid grid-cols-3 gap-6">
         {/* Asset Analysis */}
         <Card>
