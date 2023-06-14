@@ -1,13 +1,20 @@
 import logo from "@/assets/images/logo.png";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { FiChevronDown } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { menu } from "@/config/menu";
 import React from "react";
+import { twMerge } from "tailwind-merge";
 
 type Props = {};
 
 const Sidebar = ({}: Props) => {
+  const { pathname } = useLocation();
+
+  const isActive = (href: string) => {
+    return pathname === href;
+  };
+
   return (
     <div className="w-72 bg-dark-900 text-white">
       {/* Sidebar Header */}
@@ -30,11 +37,19 @@ const Sidebar = ({}: Props) => {
             <li key={index} className="px-4">
               <Link
                 to={item.href || "/"}
-                className="group flex items-center py-3 px-3 hover:bg-primary-500 hover:bg-opacity-10 rounded hover:text-primary-500"
+                className={twMerge(
+                  "group flex items-center py-3 px-3 hover:bg-primary-500 hover:bg-opacity-10 rounded hover:text-primary-500",
+                  item.href &&
+                    isActive(item.href) &&
+                    "bg-primary-500 bg-opacity-10 text-primary-500 font-medium"
+                )}
               >
                 {item.icon &&
                   React.cloneElement(item.icon, {
-                    className: "text-white group-hover:text-primary-500",
+                    className: twMerge(
+                      "text-white group-hover:text-primary-500",
+                      item.href && isActive(item.href) && "text-primary-500"
+                    ),
                   })}
                 <span className="ms-3 text-sm">{item.name}</span>
                 {item.children && (

@@ -10,7 +10,7 @@ import { To } from "react-router-dom";
 export type Menu =
   | {
       name: string;
-      href?: To;
+      href?: string;
       icon?: React.ReactElement;
       children?: never;
     }

@@ -23,7 +23,8 @@
     /* Other */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@tailwind.config": ["tailwind.config.js"]
     }
   },
   "include": ["src"],

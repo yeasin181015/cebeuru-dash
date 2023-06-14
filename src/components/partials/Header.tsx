@@ -74,7 +74,7 @@ const Header = ({}: Props) => {
                 className="rounded-full h-7 w-7"
               />
               <span className="text-xs ms-2">Easton Cox</span>
-              <FiChevronDown className="ms-4" size={16} />
+              <FiChevronDown className="ms-4 text-slate-400" size={16} />
             </Dropdown.Trigger>
             <Dropdown.Content>No content</Dropdown.Content>
           </Dropdown>

@@ -3,3 +3,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Tabs */
+.tab-list {
+  @apply border-b border-gray-200 text-sm tracking-wide flex items-center gap-6;
+}
+
+.tab {
+  margin-bottom: -1px;
+  @apply py-3 outline-none cursor-pointer;
+}
+
+.tab.active {
+  @apply border-b-2 border-primary-500 text-primary-500;
+}

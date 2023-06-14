@@ -1,9 +1,10 @@
-import React, { HTMLAttributes } from 'react';
-import { twMerge } from 'tailwind-merge';
+import React, { HTMLAttributes } from "react";
+import { twMerge } from "tailwind-merge";
 
 type CardProps = HTMLAttributes<HTMLDivElement> & {
   className?: string;
   children: React.ReactNode;
+  bordered?: boolean;
   clickable?: boolean;
   onClick?: () => void;
 };
@@ -18,8 +19,8 @@ const Card = ({
   return (
     <div
       className={twMerge(
-        'w-full rounded transition-all duration-300 border',
-        clickable && 'cursor-pointer hover:shadow-lg',
+        "w-full rounded-lg bg-white transition-all duration-300 dark:bg-slate-800",
+        clickable && "cursor-pointer hover:shadow-lg",
         className
       )}
       onClick={() => clickable && onClick?.()}
@@ -40,7 +41,7 @@ const Header = ({ className, children, ...rest }: CardHeaderProps) => {
   return (
     <div
       className={twMerge(
-        'border-b px-6 py-4 first:rounded-t bg-gray-50',
+        "border-b px-6 py-4 first:rounded-t-lg dark:border-slate-700",
         className
       )}
       {...rest}
@@ -58,7 +59,7 @@ type CardTitleProps = {
 
 const Title = ({ className, children, ...rest }: CardTitleProps) => {
   return (
-    <h4 className={twMerge('text-base font-medium', className)} {...rest}>
+    <h4 className={twMerge("text-lg font-semibold", className)} {...rest}>
       {children}
     </h4>
   );
@@ -72,7 +73,7 @@ type CardSubtitleProps = {
 
 const Subtitle = ({ className, children, ...rest }: CardSubtitleProps) => {
   return (
-    <p className={twMerge('text-sm text-gray-500', className)} {...rest}>
+    <p className={twMerge("text-sm text-slate-400", className)} {...rest}>
       {children}
     </p>
   );
@@ -86,7 +87,13 @@ type CardTextProps = {
 
 const Text = ({ className, children, ...rest }: CardTextProps) => {
   return (
-    <div className={twMerge('text-sm', className)} {...rest}>
+    <div
+      className={twMerge(
+        "text-sm text-slate-600 dark:text-slate-300",
+        className
+      )}
+      {...rest}
+    >
       {children}
     </div>
   );
@@ -100,7 +107,7 @@ type CardBodyProps = {
 
 const Body = ({ className, children, ...rest }: CardBodyProps) => {
   return (
-    <div className={twMerge('p-6 first:rounded-t', className)} {...rest}>
+    <div className={twMerge("p-6 first:rounded-t-lg", className)} {...rest}>
       {children}
     </div>
   );
@@ -116,7 +123,7 @@ const Footer = ({ className, children, ...rest }: CardFooterProps) => {
   return (
     <div
       className={twMerge(
-        'border-t px-6 py-4 last:rounded-b dark:border-gray-700',
+        "border-t px-6 py-4 last:rounded-b-lg dark:border-slate-700",
         className
       )}
       {...rest}

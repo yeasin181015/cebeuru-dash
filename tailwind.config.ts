@@ -5,7 +5,7 @@ import tailwindForms from "@tailwindcss/forms";
 import tailwindTypography from "@tailwindcss/typography";
 
 // Add your custom theme colors here
-const themeColors = {
+export const themeColors = {
   primary: colors.teal,
   secondary: colors.gray,
   success: colors.emerald,
@@ -19,10 +19,10 @@ export default {
   content: ["./index.html", "./src/**/*.{ts,tsx,css}"],
   darkMode: "class", // or 'false' or 'class'
   theme: {
+    fontFamily: {
+      sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+    },
     extend: {
-      fontFamily: {
-        sans: ["Poppins", ...defaultTheme.fontFamily.sans],
-      },
       transitionProperty: {
         width: "width",
         height: "height",
