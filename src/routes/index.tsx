@@ -6,7 +6,9 @@ import { PuffLoader } from "react-spinners";
 
 // Pages
 const Dashboard = React.lazy(() => import("@/pages/dashboard"));
-const AboutPage = React.lazy(() => import("@/pages/about"));
+const AssetManagementPage = React.lazy(
+  () => import("@/pages/asset-management")
+);
 
 export const AppRoutes = () => {
   const routes = [
@@ -19,8 +21,8 @@ export const AppRoutes = () => {
           element: <Dashboard />,
         },
         {
-          path: "/about",
-          element: <AboutPage />,
+          path: "/asset-management",
+          element: <AssetManagementPage />,
         },
       ],
     },

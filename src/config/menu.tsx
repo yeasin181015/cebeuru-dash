@@ -10,17 +10,20 @@ import { To } from "react-router-dom";
 export type Menu =
   | {
       name: string;
-      href?: string;
-      icon?: React.ReactElement;
+      href: string;
+      icon: React.ReactElement;
       children?: never;
+      isActive?: (currentPath: string) => boolean;
     }
   | {
       name: string;
       href?: never;
-      icon?: React.ReactElement;
+      icon: React.ReactElement;
+      isActive?: (currentPath: string) => boolean;
       children: {
         name: string;
-        href: To;
+        href: string;
+        isActive?: (currentPath: string) => boolean;
       }[];
     };
 
@@ -33,7 +36,32 @@ export const menu: Menu[] = [
   {
     name: "IT Management",
     icon: <ItManagementIcon size={22} />,
-    children: [],
+    children: [
+      {
+        name: "Alarms/Triggers",
+        href: "/alarms-triggers",
+      },
+      {
+        name: "Asset Management",
+        href: "/asset-management",
+      },
+      {
+        name: "Asset Monitoring",
+        href: "/asset-monitoring",
+      },
+      {
+        name: "Asset Status",
+        href: "/asset-status",
+      },
+      {
+        name: "Patch Management",
+        href: "/patch-management",
+      },
+      {
+        name: "Security Logs",
+        href: "/security-logs",
+      },
+    ],
   },
   {
     name: "Backup Management",
